@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import API from '../axios/api';
 import Pokemon from './pokemon';
-import {GridList} from '@rmwc/grid-list';
-import {Toolbar, ToolbarRow, ToolbarTitle} from "@rmwc/toolbar";
-import '@material/grid-list/dist/mdc.grid-list.css';
-import '@material/toolbar/dist/mdc.toolbar.css';
+import {Col, Row} from 'antd';
 
 const URI_KANTO = '/pokemon?limit=151';
 
@@ -24,17 +21,12 @@ export default class PokeGrid extends Component{
 
     render(){
       return(<div>
-        <Toolbar fixed>
-            <ToolbarRow>
-              <ToolbarTitle>PokéDex de Kanto</ToolbarTitle>
-            </ToolbarRow>
-        </Toolbar>
-        <div>
-        <GridList tileAspect={'3x4'} headerCaption={false}>
-            {this.state.pokemons.map(pokemon => (
-                <Pokemon key={pokemon.id} uri_poke={pokemon.url} />
-            ))}
-          </GridList>
+        <div style={{ background: '#ECECEC', padding: '30px' }}>
+          <Row gutter={8} type="flex" justify="space-between">
+              {this.state.pokemons.map(pokemon => (
+                  <Col span={8} key={pokemon.id}><Pokemon uri_poke={pokemon.url} /></Col>
+              ))}
+          </Row>
         </div>
           </div>);
     }

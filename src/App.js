@@ -1,14 +1,8 @@
 import React from 'react';
-import PokeGrid from './components/grid';
-import {Ripple} from '@rmwc/ripple';
-import '@material/ripple/dist/mdc.ripple.css';
+import PokeLayout from './components/layout';
 
 function App() {
-  return (
-      <Ripple primary>
-          <PokeGrid />
-      </Ripple>
-  );
+  return (<div><PokeLayout></PokeLayout></div>);
 }
 
 export default App;
