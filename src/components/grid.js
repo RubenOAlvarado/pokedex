@@ -23,8 +23,8 @@ export default class PokeGrid extends Component{
       return(<div>
         <div style={{ background: '#ECECEC', padding: '30px' }}>
           <Row gutter={8} type="flex" justify="space-between">
-              {this.state.pokemons.map(pokemon => (
-                  <Col span={8} key={pokemon.id}><Pokemon uri_poke={pokemon.url} /></Col>
+              {this.state.pokemons.map((pokemon,index) => (
+                  <Col span={8} key={index}><Pokemon uri_poke={pokemon.url} /></Col>
               ))}
           </Row>
         </div>
